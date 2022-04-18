@@ -7,6 +7,7 @@ Clone this repository
 ```bash
 git clone https://github.com/MattiaCazzolla/starUML-watermark-remover.git
 ```
+or download the <code>main.py</code> file
 ##  Usage
 Remove watermarks from all <code>svg</code> files in a directory
 ```bash
