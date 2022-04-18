@@ -8,8 +8,10 @@ Clone this repository
 git clone https://github.com/MattiaCazzolla/starUML-watermark-remover.git
 ```
 or download the <code>main.py</code> file
+
 ##  Usage
-Remove watermarks from all <code>svg</code> files in a directory
+Export the StarUML diagrams as SVG files in a directory\
+To remove the watermarks from all <code>svg</code> files 
 ```bash
 python main.py C:/path/to/directory
 ```
