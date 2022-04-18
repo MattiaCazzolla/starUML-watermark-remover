@@ -12,3 +12,5 @@ Remove watermarks from all <code>svg</code> files in a directory
 ```bash
 python main.py C:/path/to/directory
 ```
+## License
+This project is licensed under the [MIT](LICENSE) License.
