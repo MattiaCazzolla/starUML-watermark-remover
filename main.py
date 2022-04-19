@@ -30,7 +30,11 @@ for filename in arr:
 	string = '<text fill="#eeeeee" stroke="none" font-family="Arial" font-size="24px" font-style="normal" font-weight="normal" text-decoration="none".*>UNREGISTERED</text>'
 	x = re.search(string, content)
 
-	new = content[:x.span()[0]] + content[x.span()[1]:]
+	try:
+		new = content[:x.span()[0]] + content[x.span()[1]:]
+	except:
+		continue
+	
 
 	with open(filepath, "w") as f:
 		f.write(new)
