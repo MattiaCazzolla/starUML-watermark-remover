@@ -1,6 +1,6 @@
 # StarUML-watermark-remover
 
-Simple python script to remove the "UNREGISTERED" StarUML watermark from <code>svg</code> files
+Simple python script able to remove the "UNREGISTERED" StarUML watermark from <code>svg</code> files
 
 ## Installation
 Clone this repository
