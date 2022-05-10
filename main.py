@@ -55,7 +55,7 @@ for filename in arr:
 			drawing = svg2rlg(filepath)
 			renderPDF.drawToFile(drawing, filepath[:-3]+"pdf" )
 		except ImportError:
-			pass
+			print("Missing package: impossible to render pdf file")
 		
 		
 	print(filename + ': Watermark Removed')
