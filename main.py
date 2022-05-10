@@ -1,28 +1,38 @@
 import re
 import os
 import sys
+import argparse
+from svglib.svglib import svg2rlg
+from reportlab.graphics import renderPDF
 
-if len(sys.argv) > 2:
-    print('You have specified too many arguments')
-    sys.exit()
+my_parser = argparse.ArgumentParser(
+	usage = '%(prog)s  path [options]',
+	description='Remove the starUML UNREGISTERED watermark from svg files in a folder')
 
-if len(sys.argv) < 2:
-    print('You need to specify the path to be listed')
-    sys.exit()
+my_parser.add_argument('path',
+                       metavar='path',
+                       type=str,
+                       help='path to folder where svg files are stored')
 
-input_path = sys.argv[1]
+my_parser.add_argument('--pdf',
+                       action='store_true',
+                       help='if specified produce a pdf version (default: only svg file)',
+                       required=False)
 
-if not os.path.isdir(input_path):
+args = my_parser.parse_args()
+
+# check if path given exists
+if not os.path.isdir(args.path):
     print('The path specified does not exist')
     sys.exit()
 
-arr = os.listdir(input_path)
+arr = os.listdir(args.path)
 
 for filename in arr:
 	if filename[-4:] != '.svg':
 		continue
 
-	filepath = os.path.join(input_path,filename)
+	filepath = os.path.join(args.path,filename)
 
 	with open(filepath, "r") as f:
 		content = f.read()
@@ -34,10 +44,15 @@ for filename in arr:
 		new = content[:x.span()[0]] + content[x.span()[1]:]
 	except:
 		continue
-	
+
 
 	with open(filepath, "w") as f:
 		f.write(new)
+
+	if args.pdf:
+		drawing = svg2rlg(filepath)
+		renderPDF.drawToFile(drawing, filepath[:-3]+"pdf" )
+		
 	print(filename + ': Watermark Removed')
 
 sys.exit()
