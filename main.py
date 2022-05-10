@@ -2,8 +2,7 @@ import re
 import os
 import sys
 import argparse
-from svglib.svglib import svg2rlg
-from reportlab.graphics import renderPDF
+
 
 my_parser = argparse.ArgumentParser(
 	usage = '%(prog)s  path [options]',
@@ -50,8 +49,14 @@ for filename in arr:
 		f.write(new)
 
 	if args.pdf:
-		drawing = svg2rlg(filepath)
-		renderPDF.drawToFile(drawing, filepath[:-3]+"pdf" )
+		try:
+			from svglib.svglib import svg2rlg
+			from reportlab.graphics import renderPDF
+			drawing = svg2rlg(filepath)
+			renderPDF.drawToFile(drawing, filepath[:-3]+"pdf" )
+		except ImportError:
+			pass
+		
 		
 	print(filename + ': Watermark Removed')
 
