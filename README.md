@@ -18,7 +18,7 @@ git clone https://github.com/MattiaCazzolla/starUML-watermark-remover.git
 ```
 or download the <code>main.py</code> file
 
-## Requirements
+## Requirements (only for pdf)
 To generate the <code>pdf</code> version is necessary to install the <code>svglib</code> package\
 If the <code>--pdf</code> option will not be used then is not necessary
 
