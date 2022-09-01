@@ -35,11 +35,11 @@ Export the StarUML diagrams as SVG files in a directory
 
 To remove the watermarks from all <code>svg</code> files 
 ```bash
-python main.py C:/path/to/directory
+python main.py /path/to/directory
 ```
 To generate also a <code>pdf</code> version of the files
 ```bash
-python main.py C:/path/to/directory --pdf
+python main.py /path/to/directory --pdf
 ```
 ## License
 This project is licensed under the [MIT](LICENSE) License.
